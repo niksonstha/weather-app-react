@@ -1,7 +1,9 @@
 import { Box, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext } from "react";
+import { ApiContext } from "./context/context-api";
 
 function MoreTemp() {
+  const { data } = useContext(ApiContext);
   return (
     <Box
       display="flex"
@@ -9,14 +11,24 @@ function MoreTemp() {
       alignItems="center"
       mt="5rem"
     >
-      <Box>
-        <Text fontSize={["xl", "xl", "2xl"]}>Humidity: 80</Text>
-      </Box>
-      ||
-      <Box>
-        <Text fontSize={["xl", "xl", "2xl"]}>MaxTemp: 30°C</Text>
-        <Text fontSize={["xl", "xl", "2xl"]}>MinTemp: 20°C</Text>
-      </Box>
+      {data && (
+        <>
+          <Box>
+            <Text fontSize={["xl", "xl", "2xl"]}>
+              Humidity: {data.main.humidity}
+            </Text>
+          </Box>
+          ||
+          <Box>
+            <Text fontSize={["xl", "xl", "2xl"]}>
+              MaxTemp: {data.main.temp_max}°C
+            </Text>
+            <Text fontSize={["xl", "xl", "2xl"]}>
+              MinTemp: {data.main.temp_min}°C
+            </Text>
+          </Box>
+        </>
+      )}
     </Box>
   );
 }
