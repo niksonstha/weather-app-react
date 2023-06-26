@@ -1,10 +1,16 @@
 import { Box } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import InputField from "./InputField";
 import Temp from "./Temp";
 import MoreTemp from "./MoreTemp";
 
 function Home() {
+  const [input, setInput] = useState("kathmandu");
+
+  const onInputChangeHandler = (input) => {
+    setInput(input);
+  };
+
   return (
     <Box
       width={["90%", "80%", "60%", "50%", "40%", "30%"]}
@@ -15,8 +21,8 @@ function Home() {
       boxShadow="13px 13px 20px #171717,
     -20px -20px 27px #3b3b3b"
     >
-      <InputField />
-      <Temp />
+      <InputField onInputChange={onInputChangeHandler} />
+      <Temp inputLocation={input} />
       <MoreTemp />
     </Box>
   );

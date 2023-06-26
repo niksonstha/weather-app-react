@@ -1,10 +1,13 @@
 import "./App.css";
 import Home from "./components/Home";
+import ApiProvider from "./components/context/context-api";
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <ApiProvider>
+        <Home />
+      </ApiProvider>
     </div>
   );
 }

@@ -7,14 +7,15 @@ function MoreTemp() {
       display="flex"
       justifyContent="space-evenly"
       alignItems="center"
-      mt="7rem"
+      mt="5rem"
     >
       <Box>
-        <Text>Humidity: 80</Text>
+        <Text fontSize={["xl", "xl", "2xl"]}>Humidity: 80</Text>
       </Box>
+      ||
       <Box>
-        <Text>MaxTemp: 30</Text>
-        <Text>MinTemp: 20</Text>
+        <Text fontSize={["xl", "xl", "2xl"]}>MaxTemp: 30°C</Text>
+        <Text fontSize={["xl", "xl", "2xl"]}>MinTemp: 20°C</Text>
       </Box>
     </Box>
   );
